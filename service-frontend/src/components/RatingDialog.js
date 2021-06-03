@@ -100,7 +100,10 @@ export default function RatingDialog(props) {
   }
 
   function calculateAverageRating(){
+      console.log(reputationRatings)
       if (!reputationRatings) return 0
+      if (!reputationRatings.reputation) return 0
+      if (reputationRatings.reputation.length == 0) return 0
       return reputationRatings.reputation.reduce((curr, rating) => parseInt(rating) + curr, 0) / reputationRatings.reputation.length
   }
 
